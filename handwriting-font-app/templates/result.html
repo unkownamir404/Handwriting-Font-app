@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Your font is ready</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 640px; margin: 40px auto; padding: 0 20px; color: #222; }
+    a.button { display: inline-block; background: #222; color: #fff; padding: 10px 18px; border-radius: 6px; text-decoration: none; }
+    .missing { color: #a33; }
+    code { background: #f2f2f2; padding: 2px 6px; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <h1>"{{ family_name }}" is ready 🎉</h1>
+  <p>Captured {{ letters_found|length }} of {{ total_letters }} characters.</p>
+  <a class="button" href="{{ url_for('download_font', filename=font_file) }}">Download {{ family_name }}.ttf</a>
+
+  <h3>To install:</h3>
+  <ul>
+    <li><b>Windows:</b> double-click the .ttf file → "Install"</li>
+    <li><b>macOS:</b> double-click the .ttf file → "Install Font" in Font Book</li>
+    <li><b>Linux:</b> copy to <code>~/.local/share/fonts/</code> then run <code>fc-cache -f</code></li>
+  </ul>
+  <p>Then select "{{ family_name }}" like any other font in Word, Google Docs, etc.</p>
+
+  <p><a href="{{ url_for('index') }}">&larr; Start over / generate again</a></p>
+</body>
+</html>
